@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script>
+            /*
+                强制类型转换:
+                    值将一个数据类型的数据强制转换为其它的数据类型(主要指转换为String, Number, Boolean)
+                
+                将其他的数据类型转换为String:
+                    1.调用其它数据类型的toString()方法,但是这个方法啊有局限,null和undefined这两个没有toString()方法
+                    2.调用String()函数,使用String()函数进行强制类型转换时候,适应性更好
+                        使用String()函数对于Number和Boolean其实就是调用的toString();
+                        对于null和undefined它不会调用toString().而是将null转换为'null'  undefined抓换为'undefined'
+            */
+
+            var a = 123;
+            console.log(a);
+            console.log(typeof a);
+
+            // 1. 调用被转换类型的toString()方法,该方法不会影响到原变量,会将转换后的数据返回,即这个方法是有返回值的
+            console.log(typeof a.toString());
+            // 此时a还是Number类型
+            console.log(typeof a);
+
+            var b = a.toString();
+            console.log(typeof b);
+
+            a = a.toString();
+            console.log(typeof a);
+
+            /*
+                使用
+            
+            */
+
+            // Uncaught TypeError: Cannot read property 'toString' of null
+            var c = null;
+            //console.log(c.toString());
+            console.log(typeof String(c));
+            console.log(String(c));
+
+
+            // Uncaught TypeError: Cannot read property 'toString' of undefined
+            var d;
+            //console.log(d.toString());
+
+            // NaN类型返回NaN
+            var e = NaN;
+            console.log(e.toString());
+
+
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
