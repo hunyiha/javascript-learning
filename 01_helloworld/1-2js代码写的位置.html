@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Js代码写的位置</title>
+
+        <script type="text/javascript">
+            // 此时会马上执行
+            alert("我是写到script标签中的js代码");
+        </script>
+
+        <!-- 
+            可以将js文件编写到外部js文件中,然后通过script标签引入,写和外部引入都是用的script标签
+            引入外部js代码使用javascript标签,同时设置src属性的值,指向外部的js文件
+
+            将js代码写到外部的作用:
+                不同的页面中可以同时使用,也可以利用浏览器的缓存机制
+
+            将js代码写到外部的js文件中是我们推荐的方式
+
+            我们在引入js标签之后,我们也可以在里面写一些自己的js,但是浏览器是会忽略它,不会执行
+
+            总结js代码可以写的位置:
+                1.属性标签里   结构和行为耦合
+                2.script标签中
+                3.外部的js文件中  这是我们推荐的方式,通过script标签区引用,src指向引用
+         -->
+        <script type="text/javascript" src="js/script.js">
+            // 注意,我们这里引入了外部的js文件,所以里面的js代码是不会执行的,写也白写,如果想要写就在写一个script标签,然后编写自己的代码
+            alert("我是引入外部js文件的script标签里面的js代码");
+        </script>
+    </head>
+    <body>
+        <!-- 
+            可以将js代码编写到标签的onclick属性中 alert('你点干嘛!') 
+            当我们点击按钮时,js代码才会执行
+            alert中使用''的原因是外面使用的"",避免截断
+
+            虽然可以js代码可以写到标签属性中,当时这样结构和行为严重耦合,不方便维护,不推荐使用,但是这种形式偶尔也会用到,但是不多.
+            正确的写法是写到script标签里
+        -->
+        <button onclick="alert('你点干嘛!');">点我一下</button>
+
+        <!-- 
+            可以将js代码写道超链接的href属性中,这样当我们点击超链接时,才会执行js代码
+            js代码写在href属性中就不能乱写了,有格式javasript:
+         -->
+        <a href="javascript:alert('让你点你就点!');">你也点我一下</a>
+
+        <!-- 
+            javascript:;这种形式也经常用到,我们希望超链接点完后没有反应,我们希望通过js去处理一些功能
+         -->
+        <a href="javascript:;">你也点我一下</a>
+
+    </body>
+</html>
