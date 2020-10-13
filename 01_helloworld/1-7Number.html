@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        <script>
+            /*
+                在Js中所有的数值都是使用Number类型,包括整数和浮点数(小数)
+                运算符typeof用来检查变量的类型,语法: typeof 变量
+                    检查字符串时,会返回String
+                    检查数值时,会返回Number
+                Js中表示数字的最大值:
+                    Number.MAX_VALUE   1.7976931348623157e+308
+                    如果表示的数字大于最大值,就会返回Infinity,表示正无穷
+                JS中表示数字的最小值:
+                    Number.MIN_VALUE 表示最小的正值
+
+
+                vscode调试控制台的快捷键是： ctrl + shift + y  
+
+            */
+
+            // 这两个都是输出123,但是一个是字符串一个是数值,输出后我们是看不出到底是数值或者字符串的
+            // 为了解决这个问题,js提供了一个运算符typeof来检查变量的类型
+            console.log(typeof "123");
+            console.log(typeof 123);
+
+            // 输出js中数值的最大值
+            console.log(Number.MAX_VALUE);
+            // 返回Infinity
+            console.log(Number.MAX_VALUE*10);
+
+            // Infinity就是一个字面量,用来表示正无穷的
+            var a = Infinity;
+            console.log(a);
+
+            // 输出number,表明Inifity就是一个Number类型
+            console.log(typeof Infinity);
+
+            // 字符串没有办法*  所以返回NaN,NaN是一个特殊的数字,表示Not A Number
+            // 使用typeof检查NaN,返回Number  检查类型的时候NAN不能加引号,加了就是String字符串了
+            var b = "aaa" * "bbb";
+            console.log(b);
+            console.log(typeof b);
+
+            // 表示的是最小的正值
+            console.log(Number.MIN_VALUE);
+
+            /*
+                在JS中整数的计算基本能保证精确,不要太大就没问题
+            */
+           var c = 1232424 + 324234;
+           console.log(c);
+
+           /*
+                在js中运算可能得到一个不精确的结果,所有的编程语言中都有这个问题,但是很多语言提供了解决方案
+                0.30000000000000004
+                
+                千万不要使用js进行精确度较高的运算,将这个运算放到服务器中进行计算   特别是钱的计算
+           */
+          var d = 0.1 + 0.2;
+          console.log(d);
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
